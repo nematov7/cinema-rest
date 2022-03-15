@@ -1,4 +1,4 @@
-package uz.pdp.cinemarest.model;
+package uz.pdp.cinemarest.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,14 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-@Entity(name = "users")
-public class User {
+@Entity
+public class Refund_charge_fee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
-
 }

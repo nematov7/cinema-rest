@@ -1,8 +1,11 @@
-package uz.pdp.cinemarest.abs;
+package uz.pdp.cinemarest.entity.template;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+
+// Zuhridin Bakhriddinov 3/14/2022 3:16 PM
 
 @Getter
 @Setter
