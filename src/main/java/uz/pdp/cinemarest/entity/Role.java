@@ -3,6 +3,7 @@ package uz.pdp.cinemarest.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.PackagePrivate;
 import uz.pdp.cinemarest.entity.enums.Role_enum;
 
 
@@ -12,14 +13,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Entity
+@PackagePrivate
 public class Role  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+     Integer id;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private Role_enum name;
+    Role_enum name;
 
 
 }

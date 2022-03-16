@@ -3,6 +3,7 @@ package uz.pdp.cinemarest.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.PackagePrivate;
 
 import javax.persistence.*;
 
@@ -10,13 +11,19 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@PackagePrivate
 public class AttachmentContent  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    Integer id;
 
-    @OneToOne
-    private Attachment attachment;
+   @OneToOne(cascade = CascadeType.ALL)
+    Attachment attachment;
 
-    private byte[] data;
+     byte[] data;
+
+    public AttachmentContent(Attachment attachment, byte[] data) {
+        this.attachment = attachment;
+        this.data = data;
+    }
 }

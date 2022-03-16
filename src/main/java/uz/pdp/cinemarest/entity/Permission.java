@@ -3,6 +3,7 @@ package uz.pdp.cinemarest.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.PackagePrivate;
 import uz.pdp.cinemarest.entity.template.AbsEntity;
 
 
@@ -14,7 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
+@PackagePrivate
 public class Permission extends AbsEntity {
     @ManyToMany
-    private List<Role> role;
+     List<Role> role;
 }

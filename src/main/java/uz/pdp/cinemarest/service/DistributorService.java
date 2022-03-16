@@ -41,10 +41,14 @@ public class DistributorService {
     }
 
     public String  deleteById(Integer id) {
+       try {
+
         repository.deleteById(id);
-        if (getById(id)==null) {
-            return "delete";
-        }
+        return "delete ";
+       }catch (Exception e){
+
         return "not de;ete";
+       }
+
     }
 }
