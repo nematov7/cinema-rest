@@ -3,6 +3,7 @@ package uz.pdp.cinemarest.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.PackagePrivate;
 
 import javax.persistence.*;
 
@@ -11,18 +12,19 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@PackagePrivate
 public class Seat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+     Integer id;
 
-    private int number;
+     int number;
 
     @ManyToOne
-    private Row row;
+     Row row;
 
     @OneToOne
-    private PriceCategory priceCategory;
+     PriceCategory priceCategory;
 
 }

@@ -3,6 +3,7 @@ package uz.pdp.cinemarest.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.PackagePrivate;
 
 import javax.persistence.*;
 
@@ -11,16 +12,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@PackagePrivate
 public class Row  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    private int number;
+    Integer id;
+    int number;
 
     @ManyToOne
-    private Hall hall;
+     Hall hall;
 
 
 }

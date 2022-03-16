@@ -9,8 +9,6 @@ import lombok.experimental.PackagePrivate;
 @NoArgsConstructor
 @Data
 @PackagePrivate
-public class ApiResponse {
-     String massage;
-     boolean success;
-     Object data;
+public class ActorDto {
+  String fullName;
 }

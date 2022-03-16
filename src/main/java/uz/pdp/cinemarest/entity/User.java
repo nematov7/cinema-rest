@@ -3,6 +3,7 @@ package uz.pdp.cinemarest.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.PackagePrivate;
 import uz.pdp.cinemarest.entity.enums.Gender;
 
 
@@ -15,32 +16,29 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
+@PackagePrivate
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+     Integer id;
 
     @Column(nullable = false)
-    private String fullName;
+     String fullName;
 
     @Column(nullable = false,unique = true)
-    private String  userName;
+     String  userName;
 
     @Column(nullable = false)
-    private String password;
+     String password;
 
-    private Date dateOfBirth;
-
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Role> role;
+     Date dateOfBirth;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Permission> permission;
+     List<Role> role;
 
-    private Gender gender;
+    @ManyToMany(cascade = CascadeType.ALL)
+     List<Permission> permission;
 
-
-
+     Gender gender;
 }

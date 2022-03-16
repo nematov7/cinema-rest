@@ -33,6 +33,7 @@ public class DistributorController {
         return service.getDistributorAll();
     }
 
+
     @PostMapping("/update/{id}")
     public Distributor updateById(@PathVariable Integer id, @RequestBody DistributorDto distributorDto) {
 
