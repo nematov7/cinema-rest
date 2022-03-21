@@ -7,8 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import uz.pdp.cinemarest.entity.Actor;
-import uz.pdp.cinemarest.payload.ActorDto;
-import uz.pdp.cinemarest.payload.ApiResponse;
+import uz.pdp.cinemarest.dto.ActorDto;
+import uz.pdp.cinemarest.dto.ApiResponse;
 import uz.pdp.cinemarest.service.ActorService;
 
 @RestController

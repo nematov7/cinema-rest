@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import uz.pdp.cinemarest.entity.Actor;
 import uz.pdp.cinemarest.entity.Attachment;
 import uz.pdp.cinemarest.entity.AttachmentContent;
-import uz.pdp.cinemarest.payload.ActorDto;
+import uz.pdp.cinemarest.dto.ActorDto;
 import uz.pdp.cinemarest.repository.ActorRepository;
 import uz.pdp.cinemarest.repository.AttachmentContentRepository;
 import uz.pdp.cinemarest.repository.AttachmentRepository;
@@ -34,7 +34,7 @@ public class ActorService {
             attachmentContentRepository.save(new AttachmentContent(attachment, file.getBytes()));
             Actor actor = new Actor();
             actor.setName(actorDto.getFullName());
-            actor.setAttachment(attachment);
+          actor.setAttachment(attachment);
 
             return actorRepository.save(actor);
         } catch (Exception e) {

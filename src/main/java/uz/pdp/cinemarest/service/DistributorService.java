@@ -3,7 +3,7 @@ package uz.pdp.cinemarest.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uz.pdp.cinemarest.entity.Distributor;
-import uz.pdp.cinemarest.payload.DistributorDto;
+import uz.pdp.cinemarest.dto.DistributorDto;
 import uz.pdp.cinemarest.repository.DistributorRepository;
 
 import java.util.List;
