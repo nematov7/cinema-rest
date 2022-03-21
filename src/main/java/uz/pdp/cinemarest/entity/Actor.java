@@ -1,14 +1,13 @@
 package uz.pdp.cinemarest.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.PackagePrivate;
 import uz.pdp.cinemarest.entity.template.AbsEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +15,10 @@ import javax.persistence.OneToOne;
 @Entity
 @PackagePrivate
 public class Actor extends AbsEntity {
-  @OneToOne
-    Attachment attachment;
 
+    @OneToOne(cascade = CascadeType.ALL)
+     Attachment attachment;
+
+    @ManyToMany(mappedBy = "actors", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+     List<Movie> movie;
 }

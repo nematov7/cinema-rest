@@ -1,4 +1,4 @@
-package uz.pdp.cinemarest.payload;
+package uz.pdp.cinemarest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

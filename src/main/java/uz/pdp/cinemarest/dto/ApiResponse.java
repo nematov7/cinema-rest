@@ -1,4 +1,4 @@
-package uz.pdp.cinemarest.payload;
+package uz.pdp.cinemarest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,4 +13,9 @@ public class ApiResponse {
      String massage;
      boolean success;
      Object data;
+
+     public ApiResponse(String massage, boolean success) {
+          this.massage = massage;
+          this.success = success;
+     }
 }

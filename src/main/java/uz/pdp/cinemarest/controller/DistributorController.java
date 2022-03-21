@@ -5,9 +5,9 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uz.pdp.cinemarest.dto.ApiResponse;
+import uz.pdp.cinemarest.dto.DistributorDto;
 import uz.pdp.cinemarest.entity.Distributor;
-import uz.pdp.cinemarest.payload.ApiResponse;
-import uz.pdp.cinemarest.payload.DistributorDto;
 import uz.pdp.cinemarest.service.DistributorService;
 
 import java.util.List;
