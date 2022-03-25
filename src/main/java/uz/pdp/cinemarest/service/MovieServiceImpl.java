@@ -71,7 +71,7 @@ public class MovieServiceImpl implements MovieService {
 
         }
 //        return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ApiResponse("success", true,movieRepository.getMovieById(id).get()));
-        return ResponseEntity.ok(new ApiResponse("success", true, movieRepository.getMovieById(id).isPresent()));
+        return ResponseEntity.ok(new ApiResponse("success", true, movieRepository.getMovieById(id).get()));
     }
 
     @Override
