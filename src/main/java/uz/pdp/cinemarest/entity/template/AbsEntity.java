@@ -2,13 +2,13 @@ package uz.pdp.cinemarest.entity.template;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
-// Zuhridin Bakhriddinov 3/14/2022 3:16 PM
-
 @Getter
 @Setter
+@ToString
 @MappedSuperclass
 public abstract class AbsEntity {
     @Id
