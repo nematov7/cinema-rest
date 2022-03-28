@@ -27,7 +27,7 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
             "           m.id as  id,\n" +
             "                  m.title,\n" +
             "                   m.cover_img_id as coverImgId\n" +
-            "            from movie m\n" +
+            "            from movie m \n" +
             "            where m.id = :id")
     Optional<CustomMovieById> getMovieById(Integer id);
 

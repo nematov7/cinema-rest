@@ -16,7 +16,7 @@ public interface CustomMovieById {
 
     LocalDate getReleaseDate();
 
-    @Value("#{@genreRepository.getGenresByMovieId(target.id)}")
+    @Value("#{@genreRepository.getGenresesByMovieId(target.id)}")
     List<GenreProjection> getGenres();
 
 

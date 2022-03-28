@@ -35,7 +35,7 @@ public class MovieController {
 
 
     @GetMapping("/{id}")
-    public HttpEntity<?> getMovieById(@PathVariable int id) {
+    public HttpEntity<?> getMovieById(@PathVariable Integer id) {
         return movieService.getMovieById(id);
     }
 
@@ -46,11 +46,11 @@ public class MovieController {
      return  movieService.saveMovie(movie);
     }
 
+
     @PutMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE}, path = "/{id}")
-    public ResponseEntity editMovie(MovieDto movie, @PathVariable Integer id) {
-        movieService.editMovie(movie, id);
-        return new ResponseEntity("save", HttpStatus.OK);
+    public  HttpEntity<?> editMovie(MovieDto movie, @PathVariable Integer id) {
+     return    movieService.editMovie(movie, id);
     }
 
     @DeleteMapping("/{id}")

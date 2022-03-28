@@ -66,12 +66,10 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public HttpEntity getMovieById(Integer id) {
         if (!movieRepository.getMovieById(id).isPresent()) {
-//            return new ResponseEntity(new ApiResponse("wrong", false), HttpStatus.NOT_FOUND);
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(new ApiResponse("error", false, null));
-
+          return new ResponseEntity(new ApiResponse("wrong", false), HttpStatus.NOT_FOUND);
         }
 //        return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ApiResponse("success", true,movieRepository.getMovieById(id).get()));
-        return ResponseEntity.ok(new ApiResponse("success", true, movieRepository.getMovieById(id).get()));
+        return new ResponseEntity(new ApiResponse("success", true, movieRepository.getMovieById(id).get()),HttpStatus.OK);
     }
 
     @Override
@@ -105,9 +103,8 @@ public class MovieServiceImpl implements MovieService {
             genres.add(genreRepository.findById(genreId).get());
         }
 
-
         ArrayList<Actor> actors = new ArrayList<>();
-        for (Integer actorId : movieDto.getGenreIds()) {
+        for (Integer actorId : movieDto.getActorIds()) {
             if (!actorRepository.findById(actorId).isPresent()) {
                 return new ResponseEntity(new ApiResponse("wrong",
                         false, null), HttpStatus.BAD_REQUEST);
@@ -174,7 +171,7 @@ public class MovieServiceImpl implements MovieService {
 
         ArrayList<Genre> genres = new ArrayList<>();
         for (Integer genreId : movieDto.getGenreIds()) {
-            if (genreRepository.findById(genreId).isPresent()) {
+            if (!genreRepository.findById(genreId).isPresent()) {
                 return new ResponseEntity(new ApiResponse("wrong",
                         false, null), HttpStatus.BAD_REQUEST);
             }
@@ -201,6 +198,6 @@ public class MovieServiceImpl implements MovieService {
         movie.setDistributor(distributorOptional.get());
         movieRepository.save(movie);
         return new ResponseEntity(new ApiResponse("success",
-                true, null), HttpStatus.OK);
+                true, movie), HttpStatus.OK);
     }
 }
