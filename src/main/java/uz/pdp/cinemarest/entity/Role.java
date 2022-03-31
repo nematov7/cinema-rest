@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.PackagePrivate;
-import uz.pdp.cinemarest.entity.enums.Role_enum;
+import uz.pdp.cinemarest.entity.enums.RoleEnum;
 
 
 import javax.persistence.*;
@@ -21,7 +21,7 @@ public class Role  {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    Role_enum name;
+    RoleEnum name;
 
 
 }

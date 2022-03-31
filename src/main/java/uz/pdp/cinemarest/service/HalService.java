@@ -8,17 +8,13 @@ import org.springframework.stereotype.Service;
 import uz.pdp.cinemarest.dto.ApiResponse;
 import uz.pdp.cinemarest.dto.HolDto;
 import uz.pdp.cinemarest.entity.Hall;
-import uz.pdp.cinemarest.projection.CustomHall;
-import uz.pdp.cinemarest.projection.CustomMovieById;
-import uz.pdp.cinemarest.repository.HalRepository;
-
-import java.util.Optional;
+import uz.pdp.cinemarest.repository.HallRepository;
 
 @Service
 public class HalService {
 
     @Autowired
-    HalRepository halRepository;
+    HallRepository hallRepository;
 
 
     public Hall saveHal(HolDto holDto) {
@@ -26,28 +22,28 @@ public class HalService {
 
         hall.setName(holDto.getName());
         hall.setVipAdditionalFeeInPercent(holDto.getVipAdditionalFeeInPercent());
-        return halRepository.save(hall);
+        return hallRepository.save(hall);
     }
 
     public HttpEntity getHalById(Integer id) {
-        if (!halRepository.findById(id).isPresent()) {
+        if (!hallRepository.findById(id).isPresent()) {
              return new ResponseEntity(new ApiResponse("wrong",false), HttpStatus.BAD_REQUEST)  ;
         }
-return new ResponseEntity(new ApiResponse("success",true,halRepository.findById(id).get()),HttpStatus.OK);
+return new ResponseEntity(new ApiResponse("success",true, hallRepository.findById(id).get()),HttpStatus.OK);
 
     }
 
     public Hall editHal(HolDto holDto, Integer id) {
-        Hall halById = halRepository.getById(id);
+        Hall halById = hallRepository.getById(id);
 
         halById.setName(holDto.getName());
         halById.setVipAdditionalFeeInPercent(holDto.getVipAdditionalFeeInPercent());
 
-        return halRepository.save(halById);
+        return hallRepository.save(halById);
     }
     public String  deleteHal(Integer id){
         try {
-            halRepository.deleteById(id);
+            hallRepository.deleteById(id);
             return "delete";
         }catch (Exception e){
             return "nor delete";

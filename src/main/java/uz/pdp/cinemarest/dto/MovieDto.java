@@ -28,7 +28,7 @@ public class MovieDto {
 
      double minPrice;
 
-     int distributorId;
+     Integer distributorId;
 
      List<Integer> actorIds;
 

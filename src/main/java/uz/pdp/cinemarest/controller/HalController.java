@@ -23,7 +23,6 @@ public class HalController {
     }
 
 
-
     @PostMapping("/save")
     public ResponseEntity saveHall(HolDto holDto) {
 
@@ -34,7 +33,6 @@ public class HalController {
         }
         return new ResponseEntity(new ApiResponse("wrong", false, null), HttpStatus.BAD_REQUEST);
     }
-
 
 
     @PutMapping(path = "/{id}")

@@ -7,7 +7,6 @@ import lombok.experimental.PackagePrivate;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,10 +18,6 @@ public class SessionDate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-
-    @ManyToOne
-    MovieSession movieSession;
-
     Date data;
 
 }
