@@ -3,28 +3,35 @@ package uz.pdp.cinemarest.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.PackagePrivate;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@PackagePrivate
 public class MovieSession {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        Integer id;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private MovieAnnouncement movieAnnouncement;
 
-    @ManyToOne
-    Movie movie;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Hall hall;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private SessionDate startDate;
 
-    @ManyToOne
-    Hall hall;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private SessionTime startTime;
 
-    boolean isActive;
-
+    @ManyToOne(cascade = CascadeType.ALL)
+    private SessionTime endTime;
 }

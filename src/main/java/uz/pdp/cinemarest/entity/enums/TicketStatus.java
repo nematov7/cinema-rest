@@ -1,6 +1,6 @@
 package uz.pdp.cinemarest.entity.enums;
 
-public enum Ticket_status {
+public enum TicketStatus {
     NEW,
     PURCHASED,
     REFUNDED

@@ -10,5 +10,5 @@ import lombok.experimental.PackagePrivate;
 @Data
 @PackagePrivate
 public class DirectorDto {
-   String name;
+    String name;
 }

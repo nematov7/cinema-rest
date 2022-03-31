@@ -2,11 +2,8 @@ package uz.pdp.cinemarest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uz.pdp.cinemarest.dto.ApiResponse;
 import uz.pdp.cinemarest.dto.MovieDto;
 import uz.pdp.cinemarest.repository.MovieRepository;
 import uz.pdp.cinemarest.service.MovieServiceImpl;
@@ -43,14 +40,14 @@ public class MovieController {
     @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE})
     public HttpEntity<?> saveMovie(MovieDto movie) {
-     return  movieService.saveMovie(movie);
+        return movieService.saveMovie(movie);
     }
 
 
     @PutMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE}, path = "/{id}")
-    public  HttpEntity<?> editMovie(MovieDto movie, @PathVariable Integer id) {
-     return    movieService.editMovie(movie, id);
+    public HttpEntity<?> editMovie(MovieDto movie, @PathVariable Integer id) {
+        return movieService.editMovie(movie, id);
     }
 
     @DeleteMapping("/{id}")

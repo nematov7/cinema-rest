@@ -21,7 +21,4 @@ public class SessionTime {
     Integer id;
 
     Timestamp time;
-
-    @ManyToOne
-    SessionDate sessionDate;
 }

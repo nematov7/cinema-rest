@@ -10,12 +10,12 @@ import lombok.experimental.PackagePrivate;
 @Data
 @PackagePrivate
 public class ApiResponse {
-     String massage;
-     boolean success;
-     Object data;
+    String massage;
+    boolean success;
+    Object data;
 
-     public ApiResponse(String massage, boolean success) {
-          this.massage = massage;
-          this.success = success;
-     }
+    public ApiResponse(String massage, boolean success) {
+        this.massage = massage;
+        this.success = success;
+    }
 }

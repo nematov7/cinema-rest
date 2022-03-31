@@ -41,12 +41,11 @@ public class ActorController {
     public HttpEntity editActor(@PathVariable Integer id,
                                 @RequestParam("file") MultipartFile file,
                                 @RequestParam("json") ActorDto actorDto) {
-        boolean b = actorService.editActor(id,file, actorDto);
+        boolean b = actorService.editActor(id, file, actorDto);
         if (b) {
             return new ResponseEntity(new ApiResponse("success",
                     true, true), HttpStatus.OK);
-        }
-        else  return new ResponseEntity(new ApiResponse("wrong",
+        } else return new ResponseEntity(new ApiResponse("wrong",
                 false, false), HttpStatus.BAD_REQUEST);
     }
 }
