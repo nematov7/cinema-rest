@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import uz.pdp.cinemarest.entity.Ticket;
 import uz.pdp.cinemarest.projection.CustomTicketForCart;
 
+import java.util.List;
+
 
 public interface TicketRepository extends JpaRepository<Ticket, Integer> {
     boolean existsBySeatId(Integer seat_id);
@@ -30,4 +32,16 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer> {
             "            where t.id = :ticketId")
 
     CustomTicketForCart getTicketByIdForCart(Integer ticketId);
+
+
+    @Query(nativeQuery = true,value = "select m.title as movieTitle, t.price as price, t.id as ticketId, t.ticket_status as ticketStatus\n" +
+            "from ticket t\n" +
+            "         join movie_session ms on ms.id = t.movie_session_id\n" +
+            "         join movie_announcement ma on ma.id = ms.movie_announcement_id\n" +
+            "         join movie m on m.id = ma.movie_id\n" +
+            "where\n" +
+            "      t.user_id = :userId\n" +
+            "  and\n" +
+            "      t.ticket_status='NEW'")
+    List<CustomTicketForCart> getUserCart(Integer userId);
 }
