@@ -40,5 +40,6 @@ public class User {
     @ManyToMany(cascade = CascadeType.ALL)
      List<Permission> permission;
 
+    @Enumerated(EnumType.STRING)
      Gender gender;
 }

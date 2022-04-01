@@ -15,10 +15,15 @@ import java.util.List;
 @RestController
 @RequestMapping("api/purchase")
 public class PurchaseController {
+
+
+
     @GetMapping
     public HttpEntity<?> creatStripeSession() {
-        List<SessionCreateParams.LineItem> lineItems= new ArrayList<>();
 
+
+
+        List<SessionCreateParams.LineItem> lineItems= new ArrayList<>();
 
         SessionCreateParams params = SessionCreateParams
                 .builder()

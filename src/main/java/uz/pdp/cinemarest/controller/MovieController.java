@@ -18,7 +18,7 @@ public class MovieController {
     @Autowired
     MovieRepository movieRepository;
 
-    /*------------------ Advanced pagination------------------ */
+    /*------------------  Advanced    pagination  ------------------ */
 
     @GetMapping
     public HttpEntity getAllMovies(
@@ -35,6 +35,7 @@ public class MovieController {
     public HttpEntity<?> getMovieById(@PathVariable Integer id) {
         return movieService.getMovieById(id);
     }
+
 
 
     @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE},

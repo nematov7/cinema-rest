@@ -34,7 +34,7 @@ public class ActorService {
             attachmentContentRepository.save(new AttachmentContent(attachment, file.getBytes()));
             Actor actor = new Actor();
             actor.setName(actorDto.getFullName());
-          actor.setAttachment(attachment);
+            actor.setAttachment(attachment);
 
             return actorRepository.save(actor);
         } catch (Exception e) {
@@ -73,6 +73,5 @@ public class ActorService {
         } catch (Exception e) {
             return false;
         }
-
     }
 }
