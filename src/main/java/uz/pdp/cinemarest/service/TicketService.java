@@ -102,7 +102,7 @@ public class TicketService {
             System.out.println("after " + waitingPurchaseTimeRepository.getWaitingMinute() + " minutes ticket will be deleted!");
             timer.schedule(timerTask, waitingPurchaseTimeRepository.getWaitingMinute() * 60000);
             return new ResponseEntity(new ApiResponse("Success",
-                    true, ticket), HttpStatus.OK);
+                    true, true), HttpStatus.OK);
         }
     }
 
