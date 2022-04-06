@@ -9,7 +9,6 @@ import lombok.experimental.PackagePrivate;
 @NoArgsConstructor
 @Data
 @PackagePrivate
-public class ActorDto {
-
-  String fullName;
+public class RowDro {
+    Integer number;
 }

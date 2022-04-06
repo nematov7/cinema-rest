@@ -17,38 +17,31 @@ public class HalController {
     @Autowired
     HalService halService;
 
+    @GetMapping
+    public HttpEntity<?> getAllHall() {
+        return halService.getAllHall();
+    }
+
     @GetMapping(path = "/{id}")
     public HttpEntity<?> getHallById(@PathVariable Integer id) {
         return halService.getHalById(id);
     }
 
 
-    @PostMapping("/save")
-    public ResponseEntity saveHall(HolDto holDto) {
-
-        Hall hall = halService.saveHal(holDto);
-
-        if (hall != null) {
-            return new ResponseEntity(new ApiResponse("success", true, hall), HttpStatus.OK);
-        }
-        return new ResponseEntity(new ApiResponse("wrong", false, null), HttpStatus.BAD_REQUEST);
+    @PostMapping
+    public HttpEntity<?> saveHall(@RequestBody HolDto holDto) {
+      return halService.saveHal(holDto);
     }
 
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity editHal(HolDto holDto, @PathVariable Integer id) {
-
-        Hall hall = halService.editHal(holDto, id);
-
-        if (hall != null) {
-            return new ResponseEntity(new ApiResponse("success", true, hall), HttpStatus.OK);
-        }
-        return new ResponseEntity(new ApiResponse("wrong", false, null), HttpStatus.BAD_REQUEST);
+    public HttpEntity<?> editHal(@RequestBody HolDto holDto, @PathVariable Integer id) {
+     return halService.editHal(holDto, id);
     }
 
 
     @DeleteMapping(path = "/{id}")
-    public String deleteHal(@PathVariable Integer id) {
+    public HttpEntity<?> deleteHal(@PathVariable Integer id) {
         return halService.deleteHal(id);
     }
 }

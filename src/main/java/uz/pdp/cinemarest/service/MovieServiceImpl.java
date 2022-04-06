@@ -125,7 +125,7 @@ public class MovieServiceImpl implements MovieService {
         movie.setGenres(genres);
         movie.setDistributor(distributorOptional.get());
         movieRepository.save(movie);
-        return new ResponseEntity(new ApiResponse("success", true, movie), HttpStatus.OK);
+        return new ResponseEntity(new ApiResponse("success", true, movie.getTitle()), HttpStatus.OK);
 
     }
 
@@ -183,6 +183,7 @@ public class MovieServiceImpl implements MovieService {
                 return new ResponseEntity(new ApiResponse("wrong",
                         false, null), HttpStatus.BAD_REQUEST);
             }
+            actors.add(actorRepository.findById(actorId).get());
         }
         Movie movie = optionalMovie.get();
         movie.setTitle(movieDto.getTitle());
@@ -198,6 +199,6 @@ public class MovieServiceImpl implements MovieService {
         movie.setDistributor(distributorOptional.get());
         movieRepository.save(movie);
         return new ResponseEntity(new ApiResponse("success",
-                true, movie), HttpStatus.OK);
+                true, movie.getTitle()), HttpStatus.OK);
     }
 }

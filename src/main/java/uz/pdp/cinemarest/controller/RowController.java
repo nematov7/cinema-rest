@@ -4,11 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uz.pdp.cinemarest.dto.ApiResponse;
+import uz.pdp.cinemarest.dto.RowDro;
 import uz.pdp.cinemarest.projection.CustomRow;
 import uz.pdp.cinemarest.service.RowService;
 
@@ -22,7 +20,11 @@ public class RowController {
 
     @GetMapping("/{hallId}")
     public HttpEntity<?> getRowsByHallId(@PathVariable Integer hallId) {
-        List<CustomRow> row = rowService.getRow(hallId);
-        return new ResponseEntity(new ApiResponse("success", true, row), HttpStatus.OK);
+      return  rowService.getRowsByHallId(hallId);
+    }
+
+    @PostMapping("/{hallId}")
+    public HttpEntity<?> saveRow(@RequestBody RowDro rowDto,@PathVariable Integer hallId){
+      return   rowService.saveRow(rowDto,hallId);
     }
 }
