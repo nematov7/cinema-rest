@@ -27,4 +27,10 @@ public class RowController {
     public HttpEntity<?> saveRow(@RequestBody RowDro rowDto,@PathVariable Integer hallId){
       return   rowService.saveRow(rowDto,hallId);
     }
+
+
+    @DeleteMapping
+    public HttpEntity<?> deleteRow(@PathVariable Integer rowId){
+        return null;// TODO: 07.04.2022
+    }
 }

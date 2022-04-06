@@ -15,4 +15,13 @@ public interface RowRepository extends JpaRepository<Row,Integer> {
          "         join hall h on r.hall_id = h.id\n" +
          "where h.id =:hallId", nativeQuery = true)
  List<CustomRow>getRowsByHallId(Integer hallId);
+
+
+ @Query(nativeQuery = true,value = "select\n" +
+         "    max( r.number)\n" +
+         "from\n" +
+         "     row r\n" +
+         "join hall h on h.id = r.hall_id\n" +
+         "where r.hall_id=:hallId")
+ int getLastRowNumber(Integer hallId);
 }

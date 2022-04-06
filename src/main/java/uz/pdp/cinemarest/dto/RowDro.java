@@ -10,5 +10,5 @@ import lombok.experimental.PackagePrivate;
 @Data
 @PackagePrivate
 public class RowDro {
-    Integer number;
+    int number;
 }
