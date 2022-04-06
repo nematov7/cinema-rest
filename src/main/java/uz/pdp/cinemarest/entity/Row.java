@@ -25,9 +25,6 @@ public class Row  {
     @ManyToOne
      Hall hall;
 
-    @OneToMany(mappedBy = "row",cascade = CascadeType.ALL)
-    private List<Seat> seats;
-
     public Row(int number, Hall hall) {
         this.number = number;
         this.hall = hall;
