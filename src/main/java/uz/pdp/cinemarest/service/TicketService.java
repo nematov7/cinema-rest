@@ -99,10 +99,9 @@ public class TicketService {
                 }
             };
             Timer timer = new Timer();
-            System.out.println("after " + waitingPurchaseTimeRepository.getWaitingMinute() + " minutes ticket will be deleted!");
             timer.schedule(timerTask, waitingPurchaseTimeRepository.getWaitingMinute() * 60000);
             return new ResponseEntity(new ApiResponse("Success",
-                    true, true), HttpStatus.OK);
+                    true, ticket.getId()), HttpStatus.OK);
         }
     }
 

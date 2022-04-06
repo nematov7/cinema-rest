@@ -19,7 +19,7 @@ public class SeatController {
     }
 
 
-    @GetMapping("showAvailableSeat/{movieSessionId}")
+    @GetMapping("/{movieSessionId}")
     public HttpEntity getAllMovieSessions(@PathVariable Integer movieSessionId) {
         return seatService.getAllMovieSessions(movieSessionId);
     }

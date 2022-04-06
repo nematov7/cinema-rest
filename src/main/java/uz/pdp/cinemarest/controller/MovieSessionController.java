@@ -25,7 +25,7 @@ public class MovieSessionController {
     MovieSessionService movieSessionService;
 
     @GetMapping
-    public HttpEntity getAllMovieSession(
+    public HttpEntity<?> getAllMovieSession(
             @RequestParam(name = "size",defaultValue = Constants.DEFAULT_PAGE_SIZE) int size,
             @RequestParam(name = "page",defaultValue = "1")int page,
             @RequestParam(name = "search",defaultValue = "") String search
@@ -35,4 +35,6 @@ public class MovieSessionController {
                 size,
                 search);
     }
+
+
 }

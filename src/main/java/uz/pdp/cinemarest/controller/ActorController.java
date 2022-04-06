@@ -18,34 +18,29 @@ public class ActorController {
     ActorService actorService;
 
     @PostMapping("/save")
-    public HttpEntity<?> saveActor(@RequestParam("file") MultipartFile file,
-                                   @RequestParam("json") ActorDto actorDto) {
-        Actor actor = actorService.saveActor(file, actorDto);
-        if (actor != null) {
-            return new ResponseEntity(new ApiResponse("success", true, actor), HttpStatus.OK);
-        } else
-            return new ResponseEntity(new ApiResponse("Wrong", false, null), HttpStatus.NOT_FOUND);
+    public HttpEntity<?> saveActor(@RequestPart(name ="file") MultipartFile file,
+                                   @RequestPart(name = "actor") ActorDto actorDto) {
+        return actorService.saveActor(file, actorDto);
     }
 
     @DeleteMapping("/{id}")
     public HttpEntity<?> deleteActor(@PathVariable int id) {
-        boolean b = actorService.deleteActor(id);
-
-        if (b)
-            return new ResponseEntity("deleted", HttpStatus.OK);
-        else
-            return new ResponseEntity("not deleted", HttpStatus.BAD_REQUEST);
+       return actorService.deleteActor(id);
     }
+
+
 
     @PutMapping("/{id}")
     public HttpEntity editActor(@PathVariable Integer id,
-                                @RequestParam("file") MultipartFile file,
-                                @RequestParam("json") ActorDto actorDto) {
-        boolean b = actorService.editActor(id, file, actorDto);
-        if (b) {
-            return new ResponseEntity(new ApiResponse("success",
-                    true, true), HttpStatus.OK);
-        } else return new ResponseEntity(new ApiResponse("wrong",
-                false, false), HttpStatus.BAD_REQUEST);
+                                @RequestPart(value = "file") MultipartFile file,
+                                @RequestPart(value = "actor") ActorDto actorDto) {
+      return actorService.editActor(id, file, actorDto);
     }
+
+    @GetMapping
+    public HttpEntity getAllActor(){
+      return   actorService.getAllActor();
+    }
+
+
 }

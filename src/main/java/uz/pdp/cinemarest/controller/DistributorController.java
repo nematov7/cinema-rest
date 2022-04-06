@@ -18,28 +18,23 @@ public class DistributorController {
     @Autowired
     DistributorService service;
 
-    @PostMapping("/save")
-    public HttpEntity<?> saveDistributor(@RequestBody DistributorDto distributorDto) {
-        Distributor distributor = service.saveDistributor(distributorDto);
-        if (distributor != null) {
-            return new ResponseEntity(new ApiResponse("success",
-                    true, distributor), HttpStatus.OK);
-        }
-        return new ResponseEntity(new ApiResponse("Wrong", false, null), HttpStatus.BAD_REQUEST);
-    }
-
-    @GetMapping("/getDistributor")
+    @GetMapping
     public List<Distributor> getDistributorAll() {
         return service.getDistributorAll();
     }
 
 
-    @PostMapping("/update/{id}")
+    @PostMapping
+    public HttpEntity<?> saveDistributor(@RequestBody DistributorDto distributorDto) {
+        return  service.saveDistributor(distributorDto);
+    }
+
+    @PutMapping("/{id}")
     public Distributor updateById(@PathVariable Integer id, @RequestBody DistributorDto distributorDto) {
         return service.updateById(id, distributorDto);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public String deleteById(@PathVariable Integer id) {
         return service.deleteById(id);
     }
