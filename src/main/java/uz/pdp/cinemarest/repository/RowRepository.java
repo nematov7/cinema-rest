@@ -24,4 +24,12 @@ public interface RowRepository extends JpaRepository<Row,Integer> {
          "join hall h on h.id = r.hall_id\n" +
          "where r.hall_id=:hallId")
  int getLastRowNumber(Integer hallId);
+
+ @Query(nativeQuery = true,value = "select\n" +
+         "    r.id,r.number, r.hall_id\n" +
+         "from\n" +
+         "     row r\n" +
+         "join hall h on h.id = r.hall_id\n" +
+         "where r.number= :rowNumber and r.hall_id =:hallId")
+ Row getRowByRowNumber(int rowNumber, Integer hallId);
 }

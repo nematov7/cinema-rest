@@ -13,9 +13,9 @@ public class SeatController {
     @Autowired
     SeatService seatService;
 
-    @PostMapping()
-    public String saveSeat(SeatDto seatDto) {
-        return null;   // TODO: 28.03.2022
+    @PostMapping("/{hallId}")
+    public HttpEntity<?> saveSeat(@RequestBody  SeatDto seatDto,@PathVariable Integer hallId) {
+       return seatService.saveSeat(seatDto,hallId);
     }
 
 
@@ -23,4 +23,7 @@ public class SeatController {
     public HttpEntity getAllMovieSessions(@PathVariable Integer movieSessionId) {
         return seatService.getAllMovieSessions(movieSessionId);
     }
+
+    @PostMapping("/{hallId}")
+    public HttpEntity<?> savePriceCategorySeat()
 }

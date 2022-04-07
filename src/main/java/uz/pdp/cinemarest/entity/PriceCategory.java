@@ -17,7 +17,6 @@ import javax.persistence.Entity;
 public class PriceCategory extends AbsEntity {
 
      Double additionalFeeInPercent;
-
      String color;
 
 }
