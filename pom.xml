@@ -23,6 +23,8 @@
             <artifactId>stripe-java</artifactId>
             <version>20.110.0</version>
         </dependency>
+
+
         <dependency>
             <groupId>com.google.zxing</groupId>
             <artifactId>core</artifactId>

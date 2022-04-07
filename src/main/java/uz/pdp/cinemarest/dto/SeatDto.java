@@ -10,5 +10,7 @@ import lombok.experimental.PackagePrivate;
 @Data
 @PackagePrivate
 public class SeatDto {
-    String name;
+    int rowNumberDan;
+    int rowNumbeGacha;
+    int seatQuantity;
 }
