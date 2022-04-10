@@ -1,20 +1,17 @@
-package uz.pdp.cinemarest.entity;
+package uz.pdp.cinemarest.dto;
 
+import jdk.jfr.Name;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.PackagePrivate;
-import uz.pdp.cinemarest.entity.template.AbsEntity;
-
-import javax.persistence.Entity;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
 @PackagePrivate
-public class    CashBox extends AbsEntity {
-    double balance;
+public class PriceCategoryDto {
+    String name;
+    double additionalFeeInPercent;
+    String color;
 }
-
-

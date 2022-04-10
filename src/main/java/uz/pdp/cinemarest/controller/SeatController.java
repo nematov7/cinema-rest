@@ -14,8 +14,8 @@ public class SeatController {
     SeatService seatService;
 
     @PostMapping("/{hallId}")
-    public HttpEntity<?> saveSeat(@RequestBody  SeatDto seatDto,@PathVariable Integer hallId) {
-       return seatService.saveSeat(seatDto,hallId);
+    public HttpEntity<?> saveSeat(@RequestBody SeatDto seatDto, @PathVariable Integer hallId) {
+        return seatService.saveSeat(seatDto, hallId);
     }
 
 
@@ -24,6 +24,8 @@ public class SeatController {
         return seatService.getAllMovieSessions(movieSessionId);
     }
 
-    @PostMapping("/{hallId}")
-    public HttpEntity<?> savePriceCategorySeat()
+    @PostMapping("/price/{hallId}")
+    public HttpEntity<?> savePriceCategorySeat() {
+        return null;
+    }
 }
