@@ -2,13 +2,9 @@ package uz.pdp.cinemarest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import uz.pdp.cinemarest.entity.Actor;
 import uz.pdp.cinemarest.dto.ActorDto;
-import uz.pdp.cinemarest.dto.ApiResponse;
 import uz.pdp.cinemarest.service.ActorService;
 
 @RestController
